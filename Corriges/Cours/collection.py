@@ -4,6 +4,7 @@
 # Déclarer une liste avec la possibilité de modifier son contenu
 maliste = [0, 1, 1, 2, 2, 3, 5, 8, 13]
 print(maliste)
+print(*maliste)
 
 # J'accède au 7e élément de la liste (les index commencent à 0)
 print(maliste[6])
@@ -181,11 +182,9 @@ print(berti)
 
 # Accéder à la valeur rattaché à la clé Nom (erreur si la clé n'existe pas)
 print(berti['Nom'])
-
 # Rectourne None si la clé n'existe pas
 print(berti.get("Nom"))
-
-# Retourne une valeur par défaut si la clé n'existe pas
+# Retourne "toto" si la clé n'existe pas
 print(berti.get("nom", "toto"))
 
 # Accéder à un élément d'une liste dans un dictionnaire
@@ -202,12 +201,15 @@ print(berti)
 # Récupérer la liste des clés
 print(dico.keys())
 print(berti.keys())
+print(*berti)
 
 # Récupérer la liste des valeurs
 print(dico.values())
+print(*berti.values())
 
 # Récupérer la liste des clés/valeurs
 print(berti.items())
+print(*berti.items())
 
 # Copier un dictionnaire par référence
 dico_ref = dico
