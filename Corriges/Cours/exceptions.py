@@ -74,7 +74,30 @@ try:
         raise ValueError("La valeur ne doit pas être négative")
 except ValueError as e:
     print(e)
+
+# Gerer une exception dans une classe dediee.
+class MauvaiseValeurError(Exception):
+    """Exception levée lorsque la valeur fournie est invalide."""
     
+    def __init__(self, valeur, message="Valeur invalide détectée"):
+        self.valeur = valeur
+        self.message = f"{message} : {valeur}"
+        # Appel du constructeur de la classe mère pour bien initialiser l'objet.
+        super().__init__(self.message)
+
+# Exemple d'utilisation
+def traiter_valeur(x):
+    if x < 0:
+        raise MauvaiseValeurError(x, "La valeur ne peut pas être négative")
+    
+    return x * 2
+
+try:
+    resultat = traiter_valeur(-5)
+except MauvaiseValeurError as e:
+    print(f"Erreur capturée : {e}")
+
+
 # Structure complete du try
 try:
     pass
