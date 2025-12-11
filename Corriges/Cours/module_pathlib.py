@@ -33,5 +33,26 @@ def main():
     print(f"Il s'est passé {td} depuis la dernière modification")
     print(f"Ou, {td.total_seconds()} secondes")
 
+    # Gestion de fichier texte
+    # Suppression du fichier
+    nom_fichier.unlink()
+
+    # Ecriture initiale (creation du fichier si non existant)
+    nom_fichier.write_text("Bonjour !\n")
+
+    # Modification : on lit l'ancien contenu puis on ajoute du texte
+    ancien_contenu = nom_fichier.read_text()
+    nouveau_contenu = ancien_contenu + "Ligne ajoutée.\n"
+    nom_fichier.write_text(nouveau_contenu)
+
+    # Lecture finale
+    contenu = nom_fichier.read_text()
+    print(contenu)
+
+    # Suppression du contenu
+    nom_fichier.write_text("")
+    print("fichier vidé.")
+
+
 if __name__ == "__main__":
     main()
