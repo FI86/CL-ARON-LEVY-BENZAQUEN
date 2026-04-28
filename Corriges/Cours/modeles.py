@@ -47,6 +47,9 @@ class Sujet:
     def attache(self, observateur):
         self.__observateurs.append(observateur)
 
+    def detache(self, observateur):
+        self.__observateurs.remove(observateur)
+
     def notification(self, message):
         for observateur in self.__observateurs:
             observateur.maj(message)
@@ -67,7 +70,8 @@ sujet.attache(observateur1)
 sujet.attache(observateur2)
 
 sujet.notification("Changement d'état")  # Tous les observateurs seront notifiés
-
+sujet.detache(observateur1)
+sujet.notification("Changement")
 
 
 # Strategy pattern
